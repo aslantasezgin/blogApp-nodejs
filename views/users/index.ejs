@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
-    <title>Document</title>
+    <title><%=title%> - BlogApp</title>
   </head>
   <body>
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
@@ -22,79 +22,44 @@
       <div class="row">
         <div class="col-md-3">
           <div class="list-group">
-            <a href="" class="list-group-item list-group-item-action active"
-              >Web Geliştirme</a
+
+
+            <% categories.forEach(category => { %>
+              <a href="" class="list-group-item list-group-item-action "
+              ><%= category %></a
             >
-            <a href="" class="list-group-item list-group-item-action"
-              >Mobil Uygulamalar</a
-            >
-            <a href="" class="list-group-item list-group-item-action"
-              >Veri Analizi</a
-            >
-            <a href="" class="list-group-item list-group-item-action"
-              >Programlama</a
-            >
+            <% }) %>
+
           </div>
         </div>
 
         <div class="col-md-9">
-          <h1 class="h3 mb-3">Anasayfa</h1>
-          <div class="card mb-3">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="/static/img/1.jpeg" class="img-fluid" alt="" />
-              </div>
+          <h1 class="h3 mb-3"><%=title%></h1>
 
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Komple Uygulamalı Web Geliştirme</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellat cumque nihil, tempore adipisci nisi earum veniam
-                    eos unde. Dolor, incidunt?
-                  </p>
+          <% blogs.forEach(item => { %>
+            <% if (item.isHome && item.isVisible) { %>
+              <div class="card mb-3">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="/static/img/<%= item.blog_img  %>" class="img-fluid" alt="" />
+                  </div>
+    
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= item.blog_title %> </h5>
+                      <p class="card-text">
+                   <%= item.blog_description %>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            <% } %>
 
-          <div class="card mb-3">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="/static/img/3.jpeg" class="img-fluid" alt="" />
-              </div>
+          <% }) %>
 
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Pyhton Programlama</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellat cumque nihil, tempore adipisci nisi earum veniam
-                    eos unde. Dolor, incidunt?
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="card mb-3">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="/static/img/2.jpeg" class="img-fluid" alt="" />
-              </div>
 
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Javascript Kursu</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellat cumque nihil, tempore adipisci nisi earum veniam
-                    eos unde. Dolor, incidunt?
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
