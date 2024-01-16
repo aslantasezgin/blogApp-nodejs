@@ -11,38 +11,32 @@ const data = {
   ],
   blogs: [
     {
-      blog_id: 1,
-      blog_title: "Komple Uygulamalı Web Geliştirme",
-      blog_description:
+      id: 1,
+      blogTitle: "Komple Uygulamalı Web Geliştirme",
+      blogDescription:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat cumque nihil, tempore adipisci nisi earum veniam eos unde. Dolor, incidunt?",
-      blog_img: "1.jpeg",
-      isHome: true,
-      isVisible:true,
+      blogIMG: "1.jpeg",
+      isFeatured: true,
+      isAgree: true,
     },
     {
-      blog_id: 2,
-      blog_title: "Pyhton Programlama",
-      blog_description:
+      id: 2,
+      blogTitle: "Pyhton Programlama",
+      blogDescription:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat cumque nihil, tempore adipisci nisi earum veniam eos unde. Dolor, incidunt?",
-      blog_img: "2.jpeg",
-      isHome: true,
-      isVisible:false,
-
-
+        blogIMG: "2.jpeg",
+        isFeatured: true,
+        isAgree: false,
     },
     {
-      blog_id: 3,
-      blog_title: "Javascript Kursu",
-      blog_description:
+        id: 3,
+      blogTitle: "Javascript Kursu",
+      blogDescription:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat cumque nihil, tempore adipisci nisi earum veniam eos unde. Dolor, incidunt?",
-      blog_img: "3.jpeg",
-      isHome: false,
-      isVisible:true,
-
-
+        blogIMG: "3.jpeg",
+      isFeatured: false,
+      isAgree: true,
     },
-
-    
   ],
 };
 

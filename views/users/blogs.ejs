@@ -1,76 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
-    <title><%=title%> - BlogApp</title>
+    <%- include('../partials/head') %>
+
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
-      <div class="container">
-        <a href="/" class="navbar-brand">BlogApp</a>
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a href="/blogs" class="nav-link">Blog Listesi</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+
+    <%- include('../partials/nav') %>
+
 
     <div class="container mt-3">
       <div class="row">
         <div class="col-md-3">
-          <div class="list-group">
+          <%- include('../partials/categorie-menu', categories) %>
 
-
-            <% categories.forEach(category => { %>
-              <a href="" class="list-group-item list-group-item-action "
-              ><%= category %></a
-            >
-            <% }) %>
-
-          </div>
         </div>
 
         <div class="col-md-9">
           <h1 class="h3 mb-3"><%=title%></h1>
 
           <% blogs.forEach(item => { %>
-            <% if (item.isVisible) { %>
-              <div class="card mb-3">
-                <div class="row">
-                  <div class="col-md-4">
-                    <img src="/static/img/<%= item.blog_img  %>" class="img-fluid" alt="" />
-                  </div>
-    
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><%= item.blog_title %> </h5>
-                      <p class="card-text">
-                   <%= item.blog_description %>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <% if (item.isAgree) { %>
+              <%- include('../partials/blog-card', item) %>
+
             <% } %>
 
           <% }) %>
 
 
           <% if (blogs.filter(item => item.isVisible == true).length > 3) { %>
-            <nav>
-              <ul class="pagination">
-              <li class="page-item"><a href="" class="page-link">Geri</a></li>
-              <li class="page-item"><a href="" class="page-link active">1</a></li>
-              <li class="page-item"><a href="" class="page-link">2</a></li>
-              <li class="page-item"><a href="" class="page-link">3</a></li>
-              <li class="page-item"><a href="" class="page-link">4</a></li>
-              <li class="page-item"><a href="" class="page-link">5</a></li>
-            
-              </ul>
-                </nav>
+          <%- include('../partials/pagination') %>
           <% } %>
 
 
